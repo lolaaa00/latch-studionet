@@ -1,0 +1,379 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "cancel_bounty": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "commit_candidate": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "commitment",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": true
+    },
+    "compute_submission_commitment": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ],
+        [
+          "contributor_address",
+          "string"
+        ],
+        [
+          "candidate_commit",
+          "string"
+        ],
+        [
+          "evidence_json",
+          "string"
+        ],
+        [
+          "salt",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "create_bounty": {
+      "params": [
+        [
+          "title",
+          "string"
+        ],
+        [
+          "repository_url",
+          "string"
+        ],
+        [
+          "issue_url",
+          "string"
+        ],
+        [
+          "base_commit",
+          "string"
+        ],
+        [
+          "target_branch",
+          "string"
+        ],
+        [
+          "problem_statement",
+          "string"
+        ],
+        [
+          "criteria_json",
+          "string"
+        ],
+        [
+          "scope_policy",
+          "string"
+        ],
+        [
+          "forbidden_changes",
+          "string"
+        ],
+        [
+          "evidence_policy",
+          "string"
+        ],
+        [
+          "ci_required",
+          "bool"
+        ],
+        [
+          "closes_at",
+          "int"
+        ],
+        [
+          "challenge_window_seconds",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": true
+    },
+    "examine_candidate": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "expire_bounty": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_submission": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "finalize_submission": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "find_latest_bounty_by_sponsor": {
+      "params": [
+        [
+          "sponsor_address",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_bounty": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_certificate": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_challenge": {
+      "params": [
+        [
+          "challenge_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_credit": {
+      "params": [
+        [
+          "recipient_address",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "get_stats": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_submission": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_submission_for_commitment": {
+      "params": [
+        [
+          "commitment",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "string"
+    },
+    "list_bounties": {
+      "params": [
+        [
+          "offset",
+          "int"
+        ],
+        [
+          "count",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "list_certificates": {
+      "params": [
+        [
+          "offset",
+          "int"
+        ],
+        [
+          "count",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "list_submissions": {
+      "params": [
+        [
+          "bounty_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "array"
+    },
+    "open_challenge": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ],
+        [
+          "criterion_id",
+          "string"
+        ],
+        [
+          "evidence_url",
+          "string"
+        ],
+        [
+          "claim",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": true
+    },
+    "resolve_challenge": {
+      "params": [
+        [
+          "challenge_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "reveal_candidate": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ],
+        [
+          "candidate_commit",
+          "string"
+        ],
+        [
+          "evidence_json",
+          "string"
+        ],
+        [
+          "salt",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "review_candidate": {
+      "params": [
+        [
+          "submission_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "withdraw_credit": {
+      "params": [
+        [
+          "recipient_address",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    }
+  }
+}

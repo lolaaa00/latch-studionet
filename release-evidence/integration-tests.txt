@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.13, pytest-9.1.1, pluggy-1.6.0 -- /Users/dami/Documents/Codex/2026-09-24/github-plugin-github-openai-curated-remote/outputs/latch_studionet/.venv/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /Users/dami/Documents/Codex/2026-09-24/github-plugin-github-openai-curated-remote/outputs/latch_studionet
+plugins: genlayer-test-0.29.2
+collecting ... collected 2 items
+
+tests/integration/test_studionet_smoke.py::test_canonical_studionet_contract_is_readable PASSED
+tests/integration/test_studionet_smoke.py::test_deployed_source_matches_repository PASSED
+
+============================== 2 passed in 11.99s ==============================

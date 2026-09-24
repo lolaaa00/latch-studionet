@@ -2,6 +2,35 @@
 
 The demo should prove the actual trust model, not merely that methods can be called.
 
+## Executed release record
+
+This procedure was executed on 2026-09-24 against the source-verified contract `0xEa11d7d97c73a3A1EF9365B6dfa919355f17BE28`.
+
+- Public fixture: `https://github.com/lolaaa00/latch-repair-fixture`
+- Frozen issue: `https://github.com/lolaaa00/latch-repair-fixture/issues/1`
+- Base SHA: `860a4ff35af8437ea9da38123e9a53441560d115`
+- Winning SHA: `82dc3af6f112798c9f05952a911a4130036742f2`
+- Failed base CI: run `36028109210`
+- Passing exact-candidate CI: run `36028467663`
+- Bounty: `lt-b-1`, 0.01 GEN; submission bond: 0.0001 GEN; challenge bond: 0.0002 GEN
+- Create transaction: `0xe2a22400d2c355445605aeb9c5a85e740bc8e4864b8074d4c8cec5c968996ef6`
+- Winning commitment: `a2ae5e613942fc0049a4e30d08d08b891dc961b6d561110eb45c76c4e81ef43b`
+- Commit transaction: `0x5a0fce374ed77897d92658368dfb61f55fd55977d5c0424b231dd8e2cbad6fbd`
+- Reveal transaction: `0x932b44e5a240fb73183a94b69df86afeb95e8d99d68dad2fc054a95aa1a9db0e`
+- Artifact transaction: `0x8fdd0a9c129835d46b3d6d3ad18c7a5f9000ee7d934ae47aed9973761337bd9b`, result `ARTIFACT_VERIFIED`
+- Review transaction: `0xf3bb36fccd07ea0bbe14202f228ba40c7593c6764722815b91b5632b55248ced`, result `QUALIFIED_PENDING`
+- Criterion vector: `C1 SATISFIED`, `C2 SATISFIED`, `C3 SATISFIED`, `C4 SATISFIED`, `C5 SATISFIED`
+- Assessment capsule: `d0d73f889cef33159a57dd3a9763c59fb1edde6614a130090c43b5c5b98affcf`
+- Finalization transaction: `0xebdcf541d93dfd80450506a95cfba92bbe8cf7bfd229af159355ee8bbdeb0458`
+- Repair certificate: `058b45debcc2a765fba578411f89093723b76b77c65f6f83210bb7a5b68f3111`
+- Winner credit before withdrawal: `10200000000000000` attoGEN (0.0102 GEN)
+- Winner withdrawal transaction: `0x4affce24de7905eb34f4d6dea17e7ae580343070f8dd65c9e992f3ea69c68957`
+- Post-withdrawal winner credit: `0`; `withdrawn_atto=10200000000000000`; `accounting_balanced=true`
+
+Honest negative evidence was also executed. Transaction `0x3bc64974467bc4c66429ea51ae9aa9e9dcf8d0076a84eb09a0ecd0d3d9cef53f` rejected a reveal whose packet did not match its commitment. Submission `lt-s-2` then used the base SHA while presenting evidence for the repaired SHA. Its two artifact-examination transactions, `0x7313c89ffd6dea1c367062f8f28b5c6b9c3064157054c167b72a11bbebd40339` and `0x44e1d1d0748714a9dd2b99ae651222aedcbbe25228f051c9ddf85ce5516801b4`, produced leader results that all participating validators disputed. Neither result mutated state; the candidate remained `REVEALED`. This is recorded as validator-disagreement fail-closed behavior, not as an accepted `INVALID_CANDIDATE` judgment.
+
+Raw finalized receipts, vote sets, state reads and accounting snapshots are checked in under `release-evidence/`.
+
 ## Recommended demo target
 
 Use a small public fixture with a real Git history and CI. The easiest trustworthy path is a `demo-target/` fixture in the eventual public Latch GitHub repository or a tiny separate public repository controlled by the builder.

@@ -2,18 +2,22 @@
 
 ```text
 Product architecture          ✅ implemented
-One-contract protocol         ✅ implemented
-Studionet 61999 lock          ✅ implemented
-Injected EIP-1193 wallet      ✅ implemented
-Multi-page Next.js UI         ✅ implemented
-Python syntax                 ✅ checked
-Contract lint                 ⏳ finishing environment
-Direct Mode tests             ⏳ finishing environment
-Studionet integration smoke   ⏳ after deployment
-Frontend dependency install   ⏳ finishing environment
-Frontend typecheck/build      ⏳ finishing environment
-Canonical deployment          ⏳ finishing environment
-Live full repair lifecycle    ⏳ finishing environment
-Public frontend               ⏳ finishing environment
-Review evidence               ⏳ fill with real hashes only
+One-contract protocol         ✅ deployed and source-verified
+Studionet 61999 lock          ✅ verified
+Injected EIP-1193 wallet      ✅ verified
+Multi-page Next.js UI         ✅ published
+Stable GenVM lint/schema      ✅ pass, 24 methods
+Direct Mode tests             ✅ 68 passed
+Studionet integration smoke   ✅ 2 passed
+Frontend tests                ✅ 21 passed
+Frontend typecheck/build      ✅ passed locally and on Vercel
+Canonical deployment          ✅ finalized, successful, validator agreement
+Artifact verification         ✅ VERIFIED
+Criterion review              ✅ 5/5 SATISFIED
+Challenge window              ✅ elapsed with no challenge
+Final repair certificate      ✅ issued on chain
+Winner native GEN withdrawal  ✅ 0.0102 GEN withdrawn
+Public frontend               ✅ https://latch-studionet.vercel.app
+Public repository             ✅ https://github.com/lolaaa00/latch-studionet
+Accounting                    ✅ balanced at every recorded live step
 ```

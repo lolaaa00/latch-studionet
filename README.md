@@ -21,6 +21,14 @@ This repository is intentionally locked to **GenLayer Studionet only**.
 
 Do not deploy the release build to any other network.
 
+Canonical release:
+
+- Contract: [`0xEa11d7d97c73a3A1EF9365B6dfa919355f17BE28`](https://explorer-studio.genlayer.com/address/0xEa11d7d97c73a3A1EF9365B6dfa919355f17BE28)
+- Deployment transaction: [`0x179d4c0b8395a1dcb0fd2a9f294028de61712c543008dcbf54aa5c1f3382f102`](https://explorer-studio.genlayer.com/tx/0x179d4c0b8395a1dcb0fd2a9f294028de61712c543008dcbf54aa5c1f3382f102)
+- Deployed source SHA-256: `5b9f0a03ddd7f9f05873e8e3d615347aec022c42897fc4188c7e2a8e8cef6bb6`
+- Application: [latch-studionet.vercel.app](https://latch-studionet.vercel.app)
+- Live fixture: [lolaaa00/latch-repair-fixture](https://github.com/lolaaa00/latch-repair-fixture)
+
 ## Why GenLayer is necessary
 
 The contested question is deliberately narrow but semantic:
@@ -229,7 +237,7 @@ pytest tests/direct/ -v
 Studionet smoke after deployment:
 
 ```bash
-LATCH_CONTRACT=0x... gltest tests/integration/ -v -s --network studionet
+LATCH_CONTRACT=0xEa11d7d97c73a3A1EF9365B6dfa919355f17BE28 gltest tests/integration/ -v -s --network studionet
 ```
 
 Frontend:

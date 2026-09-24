@@ -1,0 +1,15 @@
+{
+  "product": "Latch",
+  "network": "studionet",
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "explorer": "https://explorer-studio.genlayer.com",
+  "deployedAt": "2026-09-24T16:41:30.853Z",
+  "sourceSha256": "5b9f0a03ddd7f9f05873e8e3d615347aec022c42897fc4188c7e2a8e8cef6bb6",
+  "sourceVerified": true,
+  "schemaVerified": true,
+  "contract": {
+    "address": "0xEa11d7d97c73a3A1EF9365B6dfa919355f17BE28",
+    "txHash": "0x179d4c0b8395a1dcb0fd2a9f294028de61712c543008dcbf54aa5c1f3382f102"
+  }
+}

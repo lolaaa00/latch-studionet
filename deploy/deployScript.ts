@@ -1,3 +1,4 @@
+import { assertFinalizedSuccess } from "../frontend/lib/receipt.js";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { TransactionStatus, ExecutionResult, TransactionHashVariant, type DecodedDeployData, type GenLayerClient, type GenLayerChain, type TransactionHash } from "genlayer-js/types";
@@ -27,7 +28,7 @@ export default async function main(client: GenLayerClient<GenLayerChain>) {
   console.log(`Deployment submitted: ${tx}`);
   const receipt = await client.waitForTransactionReceipt({ hash: tx, status: TransactionStatus.FINALIZED, retries: 240, interval: 15_000 });
   writeFileSync("release-evidence/deployment-receipt.json", encode(receipt));
-  if (receipt.statusName !== TransactionStatus.FINALIZED || receipt.txExecutionResultName !== ExecutionResult.FINISHED_WITH_RETURN) throw new Error("Deployment finalized without successful execution; inspect saved receipt");
+  assertFinalizedSuccess(receipt);
   const address = ((receipt.txDataDecoded as DecodedDeployData)?.contractAddress || receipt.data?.contract_address) as `0x${string}`;
   if (!address) throw new Error("Receipt has no contract address");
   const deployed = await client.getContractCode(address);

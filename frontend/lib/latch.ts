@@ -1,7 +1,8 @@
+import { assertFinalizedSuccess } from "./receipt";
 import { createClient } from "genlayer-js";
 import { studionet } from "genlayer-js/chains";
 import { TransactionHashVariant, TransactionStatus, ExecutionResult, type TransactionHash, type CalldataEncodable } from "genlayer-js/types";
-import { CONTRACT_ADDRESS, assertReleaseConfig } from "./config";
+import { CONTRACT_ADDRESS, RPC_URL, assertReleaseConfig } from "./config";
 import { provider, ensureStudionet } from "./wallet";
 
 assertReleaseConfig();
@@ -28,8 +29,18 @@ export async function write(address: string, functionName: string, args: Calldat
   return client.writeContract({ address: requireContract(), functionName, args, value });
 }
 export async function waitFinal(hash: string) {
-  const receipt = await readClient().waitForTransactionReceipt({ hash: hash as TransactionHash, status: TransactionStatus.FINALIZED, retries: 240, interval: 15_000 });
-  if (receipt.statusName !== TransactionStatus.FINALIZED || receipt.txExecutionResultName !== ExecutionResult.FINISHED_WITH_RETURN) throw new Error(`Transaction finalized without success: ${receipt.statusName} / ${receipt.txExecutionResultName}`);
+  let receipt: unknown;
+  for (let attempt = 0; attempt < 240; attempt++) {
+    const response = await fetch(RPC_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: Date.now(), method: "eth_getTransactionByHash", params: [hash] }) });
+    const payload = await response.json();
+    if (payload.error) throw new Error(payload.error.message || "Studionet receipt lookup failed");
+    receipt = payload.result;
+    const raw = receipt as { status?: string | number; status_name?: string; statusName?: string } | null;
+    const status = raw?.status ?? raw?.status_name ?? raw?.statusName;
+    if (status === "FINALIZED" || status === 7) break;
+    await new Promise(resolve => setTimeout(resolve, 15_000));
+  }
+  assertFinalizedSuccess(receipt);
   return receipt;
 }
 export async function listBounties(offset = 0, count = 24): Promise<any> { return read("list_bounties", [offset, count]); }

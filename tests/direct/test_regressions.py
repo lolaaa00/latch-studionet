@@ -202,3 +202,10 @@ def test_contradictory_challenge_result_fails_closed(direct_vm,direct_deploy,dir
     with direct_vm.expect_revert('LLM_ERROR'):c.resolve_challenge(cid)
     assert c.get_challenge(cid)['status']=='OPEN'
     assert_balanced(c)
+
+
+def test_nondeterministic_closures_serialize(direct_vm,direct_deploy,direct_alice,direct_bob):
+    direct_vm._check_pickling=True
+    c=direct_deploy(CONTRACT); _,sid=setup_submission(direct_vm,c,direct_alice,direct_bob)
+    mock_verified_artifact(direct_vm);assert c.examine_candidate(sid)=='ARTIFACT_VERIFIED'
+    mock_qualified_review(direct_vm);assert c.review_candidate(sid)=='QUALIFIED_PENDING'

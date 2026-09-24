@@ -1,0 +1,21 @@
+{
+  "accounting_balanced": true,
+  "adjudication": "ARTIFACT_EXAMINATION_PLUS_CRITERION_REPAIR_REVIEW_PLUS_BONDED_CHALLENGE",
+  "admin_controls": false,
+  "bounties": "0",
+  "bounty_escrow_atto": "0",
+  "chain_id": "61999",
+  "challenge_escrow_atto": "0",
+  "challenges": "0",
+  "claimable_atto": "0",
+  "finalized_repairs": "0",
+  "product": "Latch",
+  "rejected_candidates": "0",
+  "rpc": "https://studio.genlayer.com/api",
+  "submission_escrow_atto": "0",
+  "submissions": "0",
+  "total_deposited_atto": "0",
+  "upheld_challenges": "0",
+  "version": "0.1.0-studionet",
+  "withdrawn_atto": "0"
+}
