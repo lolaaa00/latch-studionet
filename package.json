@@ -1,0 +1,17 @@
+{
+  "name": "latch-genlayer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "genlayer deploy",
+    "check:python": "python -m py_compile contracts/latch.py tests/direct/*.py tests/integration/*.py"
+  },
+  "dependencies": {
+    "genlayer-js": "^1.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
